@@ -1,3 +1,3 @@
-from task_manager.settings import settings
+from task_manager import settings
 
 __all__ = ['settings']
