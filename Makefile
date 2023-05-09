@@ -1,2 +1,2 @@
-run-server:
+run:
 	python manage.py runserver
