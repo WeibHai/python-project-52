@@ -2,7 +2,7 @@
 
 
 <nav class="navbar navbar-expand navbar-dark bg-dark mb-5">
-    <a class="navbar-brand" href="#">{% trans 'Task Manager' %}</a>
+    <a class="navbar-brand" href="{% url 'index' %}">{% trans 'Task Manager' %}</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -10,14 +10,20 @@
     <div class="collapse navbar-collapse" id="navbarsExample02">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item" style="width: 930px;">
-            <a class="nav-link" href="#">{% trans "Users" %}</a>
+            <a class="nav-link" href="{% url 'user_index' %}">{% trans "Users" %}</a>
+          </li>
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'logout' %}">{% trans "Log Out" %}</a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'login' %}">{% trans "Log In" %}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">{% trans "Log In" %}</a>
+            <a class="nav-link" href="{% url 'user_create' %}">{% trans "Sign Up" %}</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">{% trans "Sign Up" %}</a>
-          </li>
+          {% endif %}
         </ul>
     </div>
 </nav>
