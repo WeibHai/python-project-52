@@ -13,7 +13,7 @@ from django.utils import timezone
 # Create your views here.
 class UsersListView(ListView):
     model = Users
-    template_name="users.html"
+    template_name="users/users_list.html.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
