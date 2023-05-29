@@ -17,14 +17,10 @@ class StatusMixin(LoginRequiredMixin, SuccessMessageMixin):
     fields = ['name']
 
 
-class StatusesListView(ListView):
+class StatusesListView(StatusMixin, ListView):
     model = Statuses
     template_name="statuses_list.html"
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['now'] = timezone.now()
-        return context
+    context_object_name = 'statuses'
 
 class StatusesCreateView(StatusMixin, CreateView):
     template_name = 'statuses/statuses_create.html'

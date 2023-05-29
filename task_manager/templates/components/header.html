@@ -9,23 +9,26 @@
 
     <div class="collapse navbar-collapse" id="navbarsExample02">
         <ul class="navbar-nav mr-auto">
+          {% if user.is_authenticated %}
           <li class="nav-item">
             <a class="nav-link" href="{% url 'user_index' %}">{% trans "Users" %}</a>
           </li>
-          {% if user.is_authenticated %}
           <li class="nav-item">
             <a class="nav-link" href="{% url 'status_index' %}">{% trans "Statuses" %}</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">{% trans "Labels" %}</a>
           </li>
-          <li class="nav-item"  style="width: 900px;">
-            <a class="nav-link" href="#">{% trans "Tasks" %}</a>
+          <li class="nav-item"  style="width: 750px;">
+            <a class="nav-link" href="{% url 'task_index' %}">{% trans "Tasks" %}</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'logout' %}">{% trans "Log Out" %}</a>
           </li>
           {% else %}
+          <li class="nav-item" style="width: 900px;">
+            <a class="nav-link" href="{% url 'user_index' %}">{% trans "Users" %}</a>
+          </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'login' %}">{% trans "Log In" %}</a>
           </li>

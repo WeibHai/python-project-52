@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load bootstrap4 %}
+
+{% load i18n %}
+
+{% block content %}
+<a href="{% url 'task_create' %}">{% trans 'Create task' %}</a>
+
+<div class="card mb-3">
+    <div class="card-body bg-light">
+        <form class="form-inline center" method="get">
+            {% bootstrap_form filter.form field_class="mr-3 ml-2" %}
+            <div class="form-group">
+                <div class="mr-3 ml-2">
+                    <input class="btn btn-primary " type="submit" value="{% trans 'Show' %}">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <table class="table table-striped table-hover table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">{% trans 'Name' %}</th>
+                <th scope="col">{% trans 'Status' %}</th>
+                <th scope="col">{% trans 'Author' %}</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for tsk in object_list %}
+            <tr>
+                <td>{{ tsk.id }}</td>
+                <td>{{ tsk.name }}</td>
+                <td>{{ tsk.status }}</td>
+                <td>{{ tsk.author }}</td>
+                {% if tsk.author == user %}
+                <td>
+                    <a href="{% url 'task_update' pk=tsk.id %}">{% trans 'Edit' %}</a> 
+                    <a href="{% url 'task_delete' pk=tsk.id %}">{% trans 'Delete' %}</a>
+                </td>
+                {% endif %}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
