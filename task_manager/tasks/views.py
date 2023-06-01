@@ -1,6 +1,4 @@
 from django.shortcuts import render
-
-# Create your views here.
 from django.views.generic import CreateView, UpdateView, DeleteView
 from django.views.generic.detail import DetailView
 from .models import Tasks
@@ -13,15 +11,14 @@ from django_filters.views import FilterView
 from .filters import TaskFilter
 from django.utils.translation import gettext_lazy as _
 
-
+# Create your views here.
 # Класс который содержит все общие атрибуты классов CRUD
 class TasksMixin(LoginRequiredMixin, SuccessMessageMixin):
     model = Tasks
     extra_context = {'title': _('New Tasks'), 'button': _('Create')}
     login_url = reverse_lazy('login')
     success_url = reverse_lazy('task_index')
-    fields = ['name', 'description', 'status', 'executor']
-    #fields = ['name', 'description', 'status', 'executor', 'labels']
+    fields = ['name', 'description', 'status', 'executor', 'labels']
 
 
 class TasksListView(TasksMixin, FilterView):

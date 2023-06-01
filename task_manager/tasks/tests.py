@@ -5,7 +5,8 @@ from django.test import TestCase
 from django.urls import reverse
 from task_manager.users.models import Users
 from task_manager.statuses.models import Statuses
-#from task_manager.labels.models import Labels
+from task_manager.labels.models import Labels
+from task_manager.tasks.models import Tasks
 
 
 # Create your tests here.
@@ -24,10 +25,8 @@ class CRUD_Tasks_Test(TestCase):
         Statuses.objects.create(name='status1')
         self.status = Statuses.objects.get(id=1)
 
-        #Labels.objects.create(name='label1')
-        #self.label = Labels.objects.get(id=1)
-
-        # Tasks.objects.create(name='status1')
+        Labels.objects.create(name='label1')
+        self.label = Labels.objects.get(id=1)
 
     # Адреса которые нужно проверить
     url_tasks = [
@@ -43,8 +42,3 @@ class CRUD_Tasks_Test(TestCase):
         for u in urls:
             resp = self.client.get(u)
             self.assertEqual(resp.status_code, 302)
-
-        # self.client.force_login(self.user)
-        # for u2 in urls:
-        #     resp = self.client.get(u2)
-        #     self.assertEqual(resp.status_code, 200)
