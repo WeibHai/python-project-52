@@ -21,6 +21,10 @@
                 <td>{{ lbl.id }}</td>
                 <td>{{ lbl.name }}</td>
                 <td>{{ lbl.created_at }}</td>
+                <td>
+                    <a href="{% url 'label_update' lbl.id %}">{% trans 'Edit' %}</a> 
+                    <a href="{% url 'label_delete' lbl.id %}">{% trans 'Delete' %}</a>
+                </td>
             </tr>
         {% endfor %}
         </tbody>

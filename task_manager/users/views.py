@@ -1,7 +1,6 @@
+from django.utils.translation import gettext_lazy as _
+from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.shortcuts import get_object_or_404, render, redirect
-from django.views.generic.edit import CreateView
-from django.views.generic.edit import DeleteView
-from django.views.generic.edit import UpdateView
 from django.views.generic.list import ListView
 from django.urls import reverse_lazy, reverse
 from django.shortcuts import render
@@ -12,6 +11,7 @@ from .models import Users
 
 
 # Create your views here.
+# The class displays a list of model instances / Класс отображает список экземпляров модели
 class UsersListView(ListView):
     model = Users
     template_name="users/users_list.html.html"
@@ -21,16 +21,17 @@ class UsersListView(ListView):
         context['now'] = timezone.now()
         return context
 
-
+# The class creates an instance of the model / Класс создает экземпляр модели
 class UsersCreateView(CreateView):
     template_name = 'users/users_create.html'
     success_url = reverse_lazy('login')
     form_class = UsersForm
     
-
+# Mixin classes for classes UsersUpdateView, UsersDeleteView / Классы-примесь для классов UsersUpdateView, UsersDeleteView
 class RulesMixin:
     model = Users
     success_url = reverse_lazy('user_index')
+    fields = ['first_name', 'last_name', 'username']
 
     def has_permission(self) -> bool:
         return self.get_object().pk == self.request.user.pk
@@ -51,12 +52,10 @@ class RulesMixin:
             return redirect('user_index')
         return super().dispatch(request, *args, **kwargs)
 
-
+# The class changes information about the model instance / Класс изменяет информацию о экземпляре моделе
 class UsersUpdateView(RulesMixin, UpdateView):
     template_name="users/users_update.html"
-    fields = ['first_name', 'last_name', 'username']
 
-
+# The class deletes the model instance / Класс удаляет экземпляр модели
 class UsersDeleteView(RulesMixin, DeleteView):
     template_name = "users/users_delete.html"
-    success_url = reverse_lazy('user_index')

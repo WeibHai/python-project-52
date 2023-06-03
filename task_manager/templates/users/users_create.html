@@ -6,6 +6,6 @@
     <form action="{% url 'user_create' %}" method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" value="Сreate">
+        <input type="submit" value="{% trans 'Create' %}">
     </form>
 {% endblock %}
