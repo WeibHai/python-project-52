@@ -67,7 +67,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     "whitenoise.middleware.WhiteNoiseMiddleware",
     "rollbar.contrib.django.middleware.RollbarNotifierMiddleware",
-    'myproject.rollbar_middleware.CustomRollbarNotifierMiddleware',
+    'task_manager.rollbar_middleware.CustomRollbarNotifierMiddleware',
 ]
 
 ROOT_URLCONF = 'task_manager.urls'
@@ -162,9 +162,9 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-ROLLBAR =  [
+ROLLBAR =  {
     'access_token': os.getenv("ACCESS_TOKEN"),
     'environment': os.getenv("ENVIRONMENT"),
     'code_version': '1.0',
     'root': BASE_DIR,
-]
+}

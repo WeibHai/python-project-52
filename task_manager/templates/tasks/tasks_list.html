@@ -4,8 +4,6 @@
 {% load i18n %}
 
 {% block content %}
-<a href="{% url 'task_create' %}">{% trans 'Create task' %}</a>
-
 <div class="card mb-3">
     <div class="card-body bg-light">
         <form class="form-inline center" method="get">
@@ -40,6 +38,7 @@
                 <td>
                     <a href="{% url 'task_update' pk=tsk.id %}">{% trans 'Edit' %}</a> 
                     <a href="{% url 'task_delete' pk=tsk.id %}">{% trans 'Delete' %}</a>
+                    <a href="{% url 'task_page' pk=tsk.id %}">{% trans 'To the task' %}</a>
                 </td>
                 {% endif %}
             </tr>
@@ -47,4 +46,6 @@
         </tbody>
     </table>
 </div>
+
+<a href="{% url 'task_create' %}" type="button" class="btn btn-primary">{% trans 'Create task' %}</a>
 {% endblock %}

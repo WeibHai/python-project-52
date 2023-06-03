@@ -4,7 +4,7 @@
 {% load i18n %}
 
 {% block content %}
-<a href="{% url 'label_create' %}">{% trans 'Create label' %}</a>
+
 
 <div>
     <table class="table table-striped table-hover table-bordered">
@@ -12,7 +12,7 @@
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">{% trans 'Name' %}</th>
-                <th scope="col">{% trans 'created_at' %}</th>
+                <th scope="col">{% trans 'Date of creation' %}</th>
             </tr>
         </thead>
         <tbody>
@@ -26,4 +26,6 @@
         </tbody>
     </table>
 </div>
+
+<a href="{% url 'label_create' %}" type="button" class="btn btn-primary">{% trans 'Create label' %}</a>
 {% endblock %}
