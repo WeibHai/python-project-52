@@ -1,7 +1,4 @@
 from django.test import TestCase
-
-# Create your tests here.
-from django.test import TestCase
 from django.urls import reverse
 from task_manager.users.models import Users
 from task_manager.statuses.models import Statuses
@@ -10,15 +7,15 @@ from task_manager.tasks.models import Tasks
 
 
 # Create your tests here.
-class CRUD_Tasks_Test(TestCase):
+# Class test functional model Task/ Класс тестирует функционал модели Task
+class Tasks_Test(TestCase):
 
     def setUp(self):
         Users.objects.create(
-            first_name='Alexey',
-            last_name='Navalny',
-            username='FBK',
-            email='root@fbk.ru',
-            password='iloveputin'
+            first_name='NoName',
+            last_name='NoLastName',
+            username='NoNameNoLastName',
+            password='NoLastName123'
         )
         self.user = Users.objects.get(id=1)
 
@@ -28,7 +25,6 @@ class CRUD_Tasks_Test(TestCase):
         Labels.objects.create(name='label1')
         self.label = Labels.objects.get(id=1)
 
-    # Адреса которые нужно проверить
     url_tasks = [
         reverse('task_index'),
         reverse('task_create'),
@@ -37,7 +33,6 @@ class CRUD_Tasks_Test(TestCase):
         reverse('task_delete', kwargs={'pk': 1}),
     ]
 
-    # Проверка доступа незалогененым пользователям
     def test_access(self, urls=url_tasks):
         for u in urls:
             resp = self.client.get(u)

@@ -11,7 +11,7 @@ from .models import Statuses
 
 # Create your views here.
 # Mixin classes with common attributes / Класс-примесь с общими атрибутами
-class StatusMixin(LoginRequiredMixin, SuccessMessageMixin):
+class StatusMixin(SuccessMessageMixin, LoginRequiredMixin):
     model = Statuses
     success_url = reverse_lazy('status_index')
     login_url = reverse_lazy('login')
@@ -24,14 +24,17 @@ class StatusesListView(StatusMixin, ListView):
 # The class creates an instance of the model / Класс создает экземпляр модели
 class StatusesCreateView(StatusMixin, CreateView):
     template_name = 'statuses/statuses_create.html'
+    success_message = _('Status created')
     
 # The class changes information about the model instance / Класс изменяет информацию о экземпляре моделе
 class StatusesUpdateView(StatusMixin, UpdateView):
     template_name = 'statuses/statuses_update.html'
+    success_message = _('Status changed')
 
 # The class deletes the model instance / Класс удаляет экземпляр модели
 class StatusesDeleteView(StatusMixin, DeleteView):
     template_name = 'statuses/statuses_delete.html'
+    success_message = _('Status deleted')
 
     def post(self, request, *args, **kwargs):
         try:

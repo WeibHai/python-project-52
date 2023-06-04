@@ -1,32 +1,27 @@
 from django.views.generic import TemplateView
+from django.utils.translation import gettext_lazy as _
+from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib import messages
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.views import LogoutView
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 
-# from django.utils import timezone
-# from django.views.generic.edit import CreateView
-# from django.views.generic.list import ListView
-# from django.views.generic.edit import DeleteView
-# from django.views.generic.edit import UpdateView
-# from django.urls import reverse_lazy, reverse\
-# from django.shortcuts import get_object_or_404, render, redirect
-# from django.views import View
-# from task_manager.models import User
-# from task_manager.forms import AddUserForm
-# from django.contrib.auth.forms import AuthenticationForm
 
-
-class IndexView(TemplateView):
+class IndexView(SuccessMessageMixin, TemplateView):
     template_name="index.html"
 
 
-class SignUp(LoginView):
+class LogIn(SuccessMessageMixin, LoginView):
     template_name="login.html"
+    success_message = 'Successfully login'
 
 
 class LogOut(LogoutView):
+    success_message = _('Successfully logout')
 
     def dispatch(self, request, *args, **kwargs):
         response = super().dispatch(request, *args, **kwargs)
+        messages.add_message(request, messages.INFO, self.success_message)
         return response
 

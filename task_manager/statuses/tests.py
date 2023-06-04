@@ -3,22 +3,22 @@ from task_manager.statuses.models import Statuses
 from task_manager.users.models import Users
 from django.urls import reverse
 
+
 # Create your tests here.
-class CRUD_Statuses_Test(TestCase):
+# Class test functional model Status/ Класс тестирует функционал модели Status
+class Statuses_Test(TestCase):
     def setUp(self):
         Users.objects.create(
-            first_name='Alexey',
-            last_name='Navalny',
-            username='FBK',
-            email='root@fbk.ru',
-            password='iloveputin'
+            first_name='NoName',
+            last_name='NoLastName',
+            username='NoNameNoLastName',
+            password='NoLastName123'
         )
         self.user = Users.objects.get(id=1)
         Statuses.objects.create(name='status1-work')
         Statuses.objects.create(name='status2-relax')
         Statuses.objects.create(name='status3-test')
 
-    # Проверка доступа незалогененым пользователям
     def test_access(self):
         '''Незалогинение пользователи получают редирект'''
         resp1 = self.client.get(reverse('status_create'))
@@ -40,7 +40,7 @@ class CRUD_Statuses_Test(TestCase):
         resp4 = self.client.get(reverse('status_delete', kwargs={'pk': 1}))
         self.assertEqual(resp4.status_code, 200)
 
-    # CREATE - Создание нового статуса
+    # Method tests status creation / Метод тестирует создание статус
     def test_CreateStatus(self):
         self.client.force_login(self.user)
         '''Добавим статус'''
@@ -51,13 +51,12 @@ class CRUD_Statuses_Test(TestCase):
         resp = self.client.get(reverse('status_index'))
         self.assertTrue(len(resp.context['object_list']) == 4)
 
-    # READ - список всех статусов
     def test_ListStatuses(self):
         self.client.force_login(self.user)
         resp = self.client.get(reverse('status_index'))
         self.assertTrue(len(resp.context['object_list']) == 3)
 
-    # UPDATE - обновление статуса
+    # Method tests status update / Метод тестирует обновление статус
     def test_UpdateStatus(self):
         self.client.force_login(self.user)
         s1 = Statuses.objects.get(pk=1)
@@ -67,7 +66,7 @@ class CRUD_Statuses_Test(TestCase):
         s1.refresh_from_db()
         self.assertEqual(s1.name, 'Updated Status')
 
-    # DELETE - удаление статуса
+    # Method tests status delete / Метод тестирует удаление статус
     def test_DeleteStatus(self):
         self.client.force_login(self.user)
         self.assertEqual(Statuses.objects.count(), 3)

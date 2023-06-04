@@ -1,21 +1,18 @@
 from django.test import TestCase
-
-# Create your tests here.
-from django.test import TestCase
 from task_manager.labels.models import Labels
 from task_manager.users.models import Users
 from django.urls import reverse
 
 
 # Create your tests here.
-class CRUD_Labels_Test(TestCase):
+# Class test functional model Label/ Класс тестирует функционал модели Label
+class Labels_Test(TestCase):
     def setUp(self):
         Users.objects.create(
-            first_name='Semen',
-            last_name='Efr',
-            username='Semen_pes',
-            email='root@gav.ru',
-            password='ilovekitty'
+            first_name='NoName',
+            last_name='NoLastName',
+            username='NoNameNoLastName',
+            password='NoLastName123'
         )
         self.user = Users.objects.get(id=1)
         Labels.objects.create(name='label1')
@@ -44,7 +41,7 @@ class CRUD_Labels_Test(TestCase):
         resp4 = self.client.get(reverse('label_delete', kwargs={'pk': 1}))
         self.assertEqual(resp4.status_code, 200)
 
-    # CREATE - Создание новой метки
+    # Method tests label creation / Метод тестирует создание метки
     def test_CreateLabel(self):
         self.client.force_login(self.user)
         '''Добавим статус'''
@@ -55,13 +52,12 @@ class CRUD_Labels_Test(TestCase):
         resp = self.client.get(reverse('label_index'))
         self.assertTrue(len(resp.context['object_list']) == 4)
 
-    # READ - список всех статусов
     def test_Listlabel(self):
         self.client.force_login(self.user)
         resp = self.client.get(reverse('label_index'))
         self.assertTrue(len(resp.context['object_list']) == 3)
 
-    # UPDATE - обновление статуса
+    # Method tests label update / Метод тестирует обновление метки
     def test_UpdateLabels(self):
         self.client.force_login(self.user)
         s1 = Labels.objects.get(pk=1)
@@ -71,7 +67,7 @@ class CRUD_Labels_Test(TestCase):
         s1.refresh_from_db()
         self.assertEqual(s1.name, 'Updated label')
 
-    # DELETE - удаление статуса
+    # Method tests label delete / Метод тестирует удаление метки
     def test_DeleteStatus(self):
         self.client.force_login(self.user)
         self.assertEqual(Labels.objects.count(), 3)

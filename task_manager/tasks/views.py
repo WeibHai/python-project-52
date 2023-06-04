@@ -13,7 +13,7 @@ from .models import Tasks
 
 # Create your views here.
 # Mixin classes with common attributes / Класс-примесь с общими атрибутами
-class TasksMixin(LoginRequiredMixin, SuccessMessageMixin):
+class TasksMixin(SuccessMessageMixin, LoginRequiredMixin):
     model = Tasks
     extra_context = {'title': _('New Tasks'), 'button': _('Create')}
     login_url = reverse_lazy('login')
@@ -48,12 +48,12 @@ class TaskView(TasksMixin, DetailView):
 class TasksUpdateView(TasksMixin, UpdateView):
     template_name = 'tasks/tasks_update.html'
     extra_context = {'title': _('Update task'), 'button': _('Change')}
-    success_message = _('Task successfully changed')
+    success_message = _('Task changed')
 
 # The class deletes the model instance / Класс удаляет экземпляр модели
 class TasksDeleteView(TasksMixin, DeleteView):
     template_name = 'tasks/tasks_delete.html'
-    success_message = _('Task successfully deleted')
+    success_message = _('Task deleted')
 
     def has_permission(self) -> bool:
         return self.get_object().author.pk == self.request.user.pk

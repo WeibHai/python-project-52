@@ -1,0 +1,8 @@
+{
+    first_user: {
+        first_name='Ivan',
+        last_name='Grozniy',
+        username='IvGroz',
+        password='Iv123'
+    },
+}

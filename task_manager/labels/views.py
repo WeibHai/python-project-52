@@ -13,7 +13,7 @@ from .models import Labels
 
 # Create your views here.
 # Mixin classes with common attributes / Класс-примесь с общими атрибутами
-class LabelsMixin(LoginRequiredMixin, SuccessMessageMixin):
+class LabelsMixin(SuccessMessageMixin, LoginRequiredMixin):
     model = Labels
     extra_context = {'title': _('New Labels'), 'button': _('Create')}
     login_url = reverse_lazy('login')
@@ -29,7 +29,7 @@ class LabelsListView(LabelsMixin, FilterView):
 # The class creates an instance of the model / Класс создает экземпляр модели
 class LabelsCreateView(LabelsMixin, CreateView):
     template_name = 'labels/labels_create.html'
-    success_message = _("Label created successfully")
+    success_message = _("Label created")
 
     # Добавляем имя автора в поле author, которое не отображается в форме
     def form_valid(self, form):
@@ -40,19 +40,19 @@ class LabelsCreateView(LabelsMixin, CreateView):
 class LabelsUpdateView(LabelsMixin, UpdateView):
     template_name = 'labels/labels_update.html'
     extra_context = {'title': _('Update label'), 'button': _('Change')}
-    success_message = _('Label successfully changed')
+    success_message = _('Label changed')
 
 # The class deletes the model instance / Класс удаляет экземпляр модели
 class LabelsDeleteView(LabelsMixin, DeleteView):
     template_name = 'labels/labels_delete.html'
-    success_message = _('Label successfully deleted')
+    success_message = _('Label deleted')
 
     def post(self, request, *args, **kwargs):
         try:
             self.delete(request, *args, **kwargs)
             messages.success(
                 self.request,
-                _('Label successfully deleted')
+                _('Label deleted')
             )
             return redirect(reverse_lazy('label_index'))
         except ProtectedError:

@@ -14,7 +14,7 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from task_manager.views import IndexView, SignUp, LogOut
+from task_manager.views import IndexView, LogIn, LogOut
 from django.contrib import admin
 from django.urls import path, include
 
@@ -25,7 +25,7 @@ urlpatterns = [
     path('statuses/', include('task_manager.statuses.urls',)),
     path('tasks/', include('task_manager.tasks.urls',)),
     path('labels/', include('task_manager.labels.urls',)),
-    path('login/', SignUp.as_view(), name='login'),
+    path('login/', LogIn.as_view(), name='login'),
     path('logout/', LogOut.as_view(), name='logout'),
     path('admin/', admin.site.urls),
 ]

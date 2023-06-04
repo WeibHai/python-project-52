@@ -3,7 +3,7 @@
 {% load i18n %}
 
 {% block content %}
-    <form action="{% url 'login' %}" method="post">
+    <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <input type="submit" value="Log in">

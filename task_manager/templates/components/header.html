@@ -19,22 +19,25 @@
           <li class="nav-item">
             <a class="nav-link" href="{% url 'label_index' %}">{% trans "Labels" %}</a>
           </li>
-          <li class="nav-item"  style="width: 750px;">
+          <li class="nav-item">
             <a class="nav-link" href="{% url 'task_index' %}">{% trans "Tasks" %}</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'logout' %}">{% trans "Log Out" %}</a>
-          </li>
+          <div class="col-md-3 text-end">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'logout' %}">{% trans "Log Out" %}</a>
+            </li>
+          </div>
           {% else %}
-          <li class="nav-item" style="width: 900px;">
-            <a class="nav-link" href="{% url 'user_index' %}">{% trans "Users" %}</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'login' %}">{% trans "Log In" %}</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'user_create' %}">{% trans "Sign Up" %}</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'user_index' %}">{% trans "Users" %}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'login' %}">{% trans "Log In" %}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'user_create' %}">{% trans "Sign Up" %}</a>
+            </li>
+          </div>
           {% endif %}
         </ul>
     </div>
