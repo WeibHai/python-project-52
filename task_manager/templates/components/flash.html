@@ -1,0 +1,18 @@
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+{% load i18n %}
+
+<div>
+  {% if messages %}
+  <ul class="messages">
+      {% for message in messages %}
+      {% if message.tags == 'error' %}
+          {% bootstrap_alert message alert_type='danger' %}
+      {% else %}
+          {% bootstrap_alert message alert_type=message.tags %}
+      {% endif %}
+      {% endfor %}
+  </ul>
+  {% endif %}     
+</div>

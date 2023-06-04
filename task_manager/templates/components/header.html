@@ -1,44 +1,32 @@
 {% load i18n %}
 
+<div class="container">
+  <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+    
+    <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+      <li><a href="{% url 'index' %}" class="navbar-brand">{% translate 'Task manager' %}</a></li>
+      <li><a href="{% url 'user_index' %}" class="nav-link px-2 link-secondary">{% trans "Users" %}</a></li>
+      {% if user.is_authenticated %}
+      <li><a href="{% url 'status_index' %}" class="nav-link px-2 link-secondary">{% trans "Statuses" %}</a></li>
+      <li><a href="{% url 'label_index' %}" class="nav-link px-2 link-secondary">{% trans "Labels" %}</a></li>
+      <li><a href="{% url 'task_index' %}" class="nav-link px-2 link-secondary">{% trans "Tasks" %}</a></li>
+      {% endif %}
+    </ul>
+    
+    <div class="col-md-3 text-end">
+      {% if user.is_authenticated %}
+      <a href="{% url 'logout' %}">
+        <button type="button" class="btn btn-outline-primary me-2">{% trans 'Logout' %}</button>
+      </a>
+      {% else %}
+      <a href="{% url 'login' %}">
+        <button type="button" class="btn btn-outline-primary me-2">{% trans "Login" %}</button>
+      </a>
 
-<nav class="navbar navbar-expand navbar-dark bg-dark mb-5">
-    <a class="navbar-brand" href="{% url 'index' %}">{% trans 'Task Manager' %}</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarsExample02">
-        <ul class="navbar-nav mr-auto">
-          {% if user.is_authenticated %}
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'user_index' %}">{% trans "Users" %}</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'status_index' %}">{% trans "Statuses" %}</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'label_index' %}">{% trans "Labels" %}</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'task_index' %}">{% trans "Tasks" %}</a>
-          </li>
-          <div class="col-md-3 text-end">
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'logout' %}">{% trans "Log Out" %}</a>
-            </li>
-          </div>
-          {% else %}
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'user_index' %}">{% trans "Users" %}</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'login' %}">{% trans "Log In" %}</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'user_create' %}">{% trans "Sign Up" %}</a>
-            </li>
-          </div>
-          {% endif %}
-        </ul>
+      <a href="{% url 'user_create' %}">
+        <button type="button" class="btn btn-outline-primary me-2">{% trans "Signin" %}</button>
+      </a>
+      {% endif %}
     </div>
-</nav>
+  </header>
+</div>
