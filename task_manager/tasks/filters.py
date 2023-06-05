@@ -1,6 +1,5 @@
 import django_filters
 from task_manager.labels.models import Labels
-from task_manager.tasks.models import Tasks
 from django import forms
 from django.utils.translation import gettext_lazy as _
 

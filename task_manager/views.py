@@ -4,16 +4,14 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.views import LogoutView
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.urls import reverse_lazy
 
 
 class IndexView(SuccessMessageMixin, TemplateView):
-    template_name="index.html"
+    template_name = "index.html"
 
 
 class LogIn(SuccessMessageMixin, LoginView):
-    template_name="login.html"
+    template_name = "login.html"
     success_message = 'Successfully login'
 
 
@@ -24,4 +22,3 @@ class LogOut(LogoutView):
         response = super().dispatch(request, *args, **kwargs)
         messages.add_message(request, messages.INFO, self.success_message)
         return response
-

@@ -14,14 +14,18 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from .views import TasksListView, TasksCreateView, TasksUpdateView, TasksDeleteView, TaskView
-from django.urls import path, include
+from .views import TasksListView as ListView
+from .views import TasksCreateView as CreateView
+from .views import TasksUpdateView as UpdateView
+from .views import TasksDeleteView as DeleteView
+from .views import TaskView
+from django.urls import path
 
 
 urlpatterns = [
-    path('', TasksListView.as_view(), name='task_index'),
-    path('create/', TasksCreateView.as_view(), name='task_create'),
-    path('<int:pk>/update/', TasksUpdateView.as_view(), name='task_update'),
-    path('<int:pk>/delete/', TasksDeleteView.as_view(), name='task_delete'),
+    path('', ListView.as_view(), name='task_index'),
+    path('create/', CreateView.as_view(), name='task_create'),
+    path('<int:pk>/update/', UpdateView.as_view(), name='task_update'),
+    path('<int:pk>/delete/', DeleteView.as_view(), name='task_delete'),
     path('<int:pk>/', TaskView.as_view(), name='task_page'),
 ]

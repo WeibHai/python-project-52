@@ -2,8 +2,10 @@ from django.test import TestCase
 from .models import Users
 from django.urls import reverse
 
+
 # Create your tests here.
-# Class test functional model User/ Класс тестирует функционал модели User
+# Class test functional model User
+# Класс тестирует функционал модели User
 class Users_Test(TestCase):
 
     @classmethod
@@ -21,7 +23,8 @@ class Users_Test(TestCase):
             password='AnnaNone123'
         )
 
-    # Method tests user creation / Метод тестирует создание пользователя
+    # Method tests user creation
+    # Метод тестирует создание пользователя
     def test_SignUp(self):
         resp = self.client.get(reverse('user_create'))
         self.assertEqual(resp.status_code, 200)
@@ -53,7 +56,8 @@ class Users_Test(TestCase):
         resp = self.client.get(reverse('user_index'))
         self.assertTrue(len(resp.context['object_list']) == 2)
 
-    # Method tests user update / Метод тестирует обновление пользователя
+    # Method tests user update
+    # Метод тестирует обновление пользователя
     def test_UpdateUser(self):
         user = Users.objects.get(id=1)
         '''Пробуем изменить данные без аутентификации'''
@@ -83,7 +87,8 @@ class Users_Test(TestCase):
         user.refresh_from_db()
         self.assertEqual(user.first_name, 'NoName')
 
-    # The method tests the deletion of a user / Метод тестирует удаление пользователя
+    # The method tests the deletion of a user
+    # Метод тестирует удаление пользователя
     def test_DeleteUser(self):
         user = Users.objects.get(username='AnnaNone')
         '''Без аутентификации'''

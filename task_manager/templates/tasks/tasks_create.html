@@ -1,11 +1,12 @@
 {% extends "base.html" %}
-
+{% load bootstrap4 %}
 {% load i18n %}
 
 {% block content %}
-    <form action="{% url 'task_create' %}" method="post">
+    <h1 class="my-4">{{ title }}</h1>
+    <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Сreate">
+        {% bootstrap_form form %}
+        <input class="btn btn-success" type="submit" value="Create">
     </form>
 {% endblock %}

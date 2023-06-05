@@ -3,7 +3,7 @@ from django.views.generic import CreateView, UpdateView, DeleteView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.detail import DetailView
-from django.shortcuts import render, redirect
+from django.shortcuts import redirect
 from django_filters.views import FilterView
 from django.urls import reverse_lazy
 from django.contrib import messages
@@ -12,7 +12,8 @@ from .models import Tasks
 
 
 # Create your views here.
-# Mixin classes with common attributes / Класс-примесь с общими атрибутами
+# Mixin classes with common attributes
+# Класс-примесь с общими атрибутами
 class TasksMixin(SuccessMessageMixin, LoginRequiredMixin):
     model = Tasks
     extra_context = {'title': _('New Tasks'), 'button': _('Create')}
@@ -21,36 +22,44 @@ class TasksMixin(SuccessMessageMixin, LoginRequiredMixin):
     fields = ['name', 'description', 'status', 'executor', 'labels']
 
 
-# The class displays a list of model instances / Класс отображает список экземпляров модели
+# The class displays a list of model instances
+# Класс отображает список экземпляров модели
 class TasksListView(TasksMixin, FilterView):
     context_object_name = 'tasks'
     extra_context = {'title': _('Tasks')}
     template_name = 'tasks/tasks_list.html'
     filterset_class = TaskFilter
 
-# The class creates an instance of the model / Класс создает экземпляр модели
+
+# The class creates an instance of the model
+# Класс создает экземпляр модели
 class TasksCreateView(TasksMixin, CreateView):
     template_name = 'tasks/tasks_create.html'
     success_message = _("Task created successfully")
 
-    # Добавляем имя автора в поле author, которое не отображается в форме
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
 
-# The class displays detailed information about the model / Класс отображает подобробную иформацию о моделе
+
+# The class displays detailed information about the model
+# Класс отображает подобробную иформацию о моделе
 class TaskView(TasksMixin, DetailView):
     context_object_name = 'task'
     extra_context = {'title': _('Show task')}
     template_name = 'tasks/tasks_page.html'
 
-# The class changes information about the model instance / Класс изменяет информацию о экземпляре моделе
+
+# The class changes information about the model instance
+# Класс изменяет информацию о экземпляре моделе
 class TasksUpdateView(TasksMixin, UpdateView):
     template_name = 'tasks/tasks_update.html'
     extra_context = {'title': _('Update task'), 'button': _('Change')}
     success_message = _('Task changed')
 
-# The class deletes the model instance / Класс удаляет экземпляр модели
+
+# The class deletes the model instance
+# Класс удаляет экземпляр модели
 class TasksDeleteView(TasksMixin, DeleteView):
     template_name = 'tasks/tasks_delete.html'
     success_message = _('Task deleted')

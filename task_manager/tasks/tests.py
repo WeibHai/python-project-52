@@ -3,11 +3,11 @@ from django.urls import reverse
 from task_manager.users.models import Users
 from task_manager.statuses.models import Statuses
 from task_manager.labels.models import Labels
-from task_manager.tasks.models import Tasks
 
 
 # Create your tests here.
-# Class test functional model Task/ Класс тестирует функционал модели Task
+# Class test functional model Task
+# Класс тестирует функционал модели Task
 class Tasks_Test(TestCase):
 
     def setUp(self):

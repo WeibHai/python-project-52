@@ -1,36 +1,39 @@
 from django.utils.translation import gettext_lazy as _
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
-from django.shortcuts import get_object_or_404, render, redirect
+from django.shortcuts import redirect
 from django.views.generic.list import ListView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
-from django.urls import reverse_lazy, reverse
-from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.utils import timezone
-from django.views import View
 from .forms import UsersForm
 from .models import Users
 
 
 # Create your views here.
-# The class displays a list of model instances / Класс отображает список экземпляров модели
+# The class displays a list of model instances
+# Класс отображает список экземпляров модели
 class UsersListView(SuccessMessageMixin, ListView):
     model = Users
-    template_name="users/users_list.html.html"
+    template_name = "users/users_list.html.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['now'] = timezone.now()
         return context
 
-# The class creates an instance of the model / Класс создает экземпляр модели
+
+# The class creates an instance of the model
+# Класс создает экземпляр модели
 class UsersCreateView(SuccessMessageMixin, CreateView):
     template_name = 'users/users_create.html'
     success_message = _('User created')
     success_url = reverse_lazy('login')
     form_class = UsersForm
-    
-# Mixin classes for classes UsersUpdateView, UsersDeleteView / Классы-примесь для классов UsersUpdateView, UsersDeleteView
+
+
+# Mixin classes for classes UsersUpdateView, UsersDeleteView
+# Класс-примесь для классов UsersUpdateView, UsersDeleteView
 class RulesMixin:
     model = Users
     success_url = reverse_lazy('user_index')
@@ -55,12 +58,16 @@ class RulesMixin:
             return redirect('user_index')
         return super().dispatch(request, *args, **kwargs)
 
-# The class changes information about the model instance / Класс изменяет информацию о экземпляре моделе
+
+# The class changes information about the model instance
+# Класс изменяет информацию о экземпляре моделе
 class UsersUpdateView(SuccessMessageMixin, RulesMixin, UpdateView):
-    template_name="users/users_update.html"
+    template_name = "users/users_update.html"
     success_message = _('User changed')
 
-# The class deletes the model instance / Класс удаляет экземпляр модели
+
+# The class deletes the model instance
+# Класс удаляет экземпляр модели
 class UsersDeleteView(SuccessMessageMixin, RulesMixin, DeleteView):
     template_name = "users/users_delete.html"
     success_message = _('User deleted')
