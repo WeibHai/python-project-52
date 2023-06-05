@@ -20,6 +20,7 @@ django-filter = "^23.2"
 rollbar = "^0.16.3"
 flake8 = "^6.0.0"
 pytest-cov = "^4.1.0"
+coverage = "^7.2.7"
 
 
 [build-system]
