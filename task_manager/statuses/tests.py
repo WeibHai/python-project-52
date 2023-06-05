@@ -5,7 +5,8 @@ from django.urls import reverse
 
 
 # Create your tests here.
-# Class test functional model Status/ Класс тестирует функционал модели Status
+# Class test functional model Status
+# Класс тестирует функционал модели Status
 class Statuses_Test(TestCase):
     def setUp(self):
         Users.objects.create(
@@ -40,7 +41,8 @@ class Statuses_Test(TestCase):
         resp4 = self.client.get(reverse('status_delete', kwargs={'pk': 1}))
         self.assertEqual(resp4.status_code, 200)
 
-    # Method tests status creation / Метод тестирует создание статус
+    # Method tests status creation
+    # Метод тестирует создание статус
     def test_CreateStatus(self):
         self.client.force_login(self.user)
         '''Добавим статус'''
@@ -56,7 +58,8 @@ class Statuses_Test(TestCase):
         resp = self.client.get(reverse('status_index'))
         self.assertTrue(len(resp.context['object_list']) == 3)
 
-    # Method tests status update / Метод тестирует обновление статус
+    # Method tests status update
+    # Метод тестирует обновление статус
     def test_UpdateStatus(self):
         self.client.force_login(self.user)
         s1 = Statuses.objects.get(pk=1)
@@ -66,7 +69,8 @@ class Statuses_Test(TestCase):
         s1.refresh_from_db()
         self.assertEqual(s1.name, 'Updated Status')
 
-    # Method tests status delete / Метод тестирует удаление статус
+    # Method tests status delete
+    # Метод тестирует удаление статус
     def test_DeleteStatus(self):
         self.client.force_login(self.user)
         self.assertEqual(Statuses.objects.count(), 3)
