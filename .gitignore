@@ -2,3 +2,4 @@
 .venv/
 dist/
 __pycache__/
+test-reporter-latest-linux-amd64
