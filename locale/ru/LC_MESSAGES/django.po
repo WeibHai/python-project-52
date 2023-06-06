@@ -55,7 +55,7 @@ msgstr "Выйти"
 
 #: task_manager/templates/components/header.html:23
 msgid "Log In"
-msgstr "Войти"
+msgstr "Вход"
 
 #: task_manager/templates/components/header.html:27
 msgid "Sign Up"
