@@ -35,7 +35,7 @@ class TasksListView(TasksMixin, FilterView):
 # Класс создает экземпляр модели
 class TasksCreateView(TasksMixin, CreateView):
     template_name = 'tasks/tasks_create.html'
-    success_message = _("Task created successfully")
+    success_message = _("Task created")
 
     def form_valid(self, form):
         form.instance.author = self.request.user

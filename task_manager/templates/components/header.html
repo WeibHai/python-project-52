@@ -4,7 +4,7 @@
   <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
     
     <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-      <li><a href="{% url 'index' %}" class="navbar-brand">{% translate 'Task manager' %}</a></li>
+      <li><a href="{% url 'index' %}" class="navbar-brand">{% translate 'Task Manager' %}</a></li>
       <li><a href="{% url 'user_index' %}" class="nav-link px-2 link-secondary">{% trans "Users" %}</a></li>
       {% if user.is_authenticated %}
       <li><a href="{% url 'status_index' %}" class="nav-link px-2 link-secondary">{% trans "Statuses" %}</a></li>
@@ -16,15 +16,15 @@
     <div class="col-md-3 text-end">
       {% if user.is_authenticated %}
       <a href="{% url 'logout' %}">
-        <button type="button" class="btn btn-outline-primary me-2">{% trans 'Logout' %}</button>
+        <button type="button" class="btn btn-outline-primary me-2">{% trans 'Log Out' %}</button>
       </a>
       {% else %}
       <a href="{% url 'login' %}">
-        <button type="button" class="btn btn-outline-primary me-2">{% trans "Login" %}</button>
+        <button type="button" class="btn btn-outline-primary me-2">{% trans "Log In" %}</button>
       </a>
 
       <a href="{% url 'user_create' %}">
-        <button type="button" class="btn btn-outline-primary me-2">{% trans "Signin" %}</button>
+        <button type="button" class="btn btn-outline-primary me-2">{% trans "Sign Up" %}</button>
       </a>
       {% endif %}
     </div>

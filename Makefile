@@ -17,7 +17,7 @@ test:
 	poetry run python3 manage.py test
 
 trans:
-	django-admin compilemessages
+	poetry run django-admin compilemessages
 
 tests-cov:
 	poetry run coverage run ./manage.py test

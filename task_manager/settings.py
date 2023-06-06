@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from django.utils.translation import gettext_lazy as _
 from pathlib import Path
 from dotenv import load_dotenv
-import dj_database_url
+#import dj_database_url
 import os
 
 
