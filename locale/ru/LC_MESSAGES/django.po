@@ -54,11 +54,11 @@ msgid "Log Out"
 msgstr "Выйти"
 
 #: task_manager/templates/components/header.html:23
-msgid "Log In"
+msgid "Sign In"
 msgstr "Вход"
 
 #: task_manager/templates/components/header.html:27
-msgid "Sign Up"
+msgid "Registration"
 msgstr "Регистрация"
 
 #: task_manager/templates/labels/labels_list.html:21
