@@ -1,5 +1,8 @@
 start:
 	poetry run gunicorn --workers=5 task_manager.wsgi
+	
+install:
+	poetry install
 
 start-dev:
 	poetry manage.py runserver
