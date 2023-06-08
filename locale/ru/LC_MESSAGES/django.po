@@ -87,6 +87,18 @@ msgstr "Редактировать"
 msgid "Delete"
 msgstr "Удалить"
 
+#: task_manager/templates/users/users_list.html:14
+msgid "Name user"
+msgstr "Имя пользователя"
+
+#: task_manager/templates/users/users_list.html:15
+msgid "Full name"
+msgstr "Полное имя"
+
+#: task_manager/templates/users/users_list.html:16
+msgid "Date of creation"
+msgstr "Дата создания"
+
 #: task_manager/templates/statuses/statuses_list.html:34
 msgid "Create status"
 msgstr "Создать статус"
@@ -98,6 +110,18 @@ msgstr "Создать задачу"
 #: task_manager/templates/label/labels_list.html:35
 msgid "Create label"
 msgstr "Создать метку"
+
+#: task_manager/templates/label/labels_list.html:27
+msgid "Name"
+msgstr "Имя"
+
+#: task_manager/templates/label/labels_list.html:27
+msgid "Status"
+msgstr "Cтатус"
+
+#: task_manager/templates/label/labels_list.html:27
+msgid "Author"
+msgstr "Автор"
 
 #: task_manager/users/views.py:30
 msgid "User created"

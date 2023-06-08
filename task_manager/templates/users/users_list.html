@@ -12,6 +12,8 @@
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">{% trans 'Name user' %}</th>
+                <th scope="col">{% trans 'Full name' %}</th>
+                <th scope="col">{% trans 'Date of creation' %}</th>
             </tr>
         </thead>
         <tbody>
@@ -19,6 +21,8 @@
             <tr>
                 <td>{{ usr.id }}</td>
                 <td>{{ usr.username }}</td>
+                <td>{{ usr.first_name }} {{ usr.last_name }}</td>
+                <td>{{ usr.created_at }}</td>
                 {% if usr == user %}
                 <td>
                     <a href="{% url 'user_update' pk=usr.id %}">{% trans 'Edit' %}</a> 
