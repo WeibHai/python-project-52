@@ -59,7 +59,7 @@ msgstr "Вход"
 
 #: task_manager/templates/login.html:9
 msgid "Login"
-msgstr "Авторизоваться"
+msgstr "Войти"
 
 #: task_manager/views.py:15
 msgid "Successfully login"
