@@ -25,7 +25,7 @@ trans:
 	django-admin compilemessages
 
 lint:
-	poetry run flake8 --ignore=E501 task_manager
+	poetry run flake8 task_manager
 
 tests:
 	poetry run python3 manage.py test

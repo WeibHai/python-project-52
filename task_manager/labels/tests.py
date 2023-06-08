@@ -5,7 +5,8 @@ from django.urls import reverse
 
 
 # Create your tests here.
-# Class test functional model Label/ Класс тестирует функционал модели Label
+# Class test functional model Label
+# Класс тестирует функционал модели Label
 class Labels_Test(TestCase):
     def setUp(self):
         Users.objects.create(
@@ -19,7 +20,6 @@ class Labels_Test(TestCase):
         Labels.objects.create(name='label2')
         Labels.objects.create(name='label3')
 
-    # Проверка доступа незалогененым пользователям
     def test_access(self):
         '''Незалогинение пользователи получают редирект'''
         resp1 = self.client.get(reverse('label_create'))
@@ -41,7 +41,8 @@ class Labels_Test(TestCase):
         resp4 = self.client.get(reverse('label_delete', kwargs={'pk': 1}))
         self.assertEqual(resp4.status_code, 200)
 
-    # Method tests label creation / Метод тестирует создание метки
+    # Method tests label creation
+    # Метод тестирует создание метки
     def test_CreateLabel(self):
         self.client.force_login(self.user)
         '''Добавим статус'''
@@ -57,7 +58,8 @@ class Labels_Test(TestCase):
         resp = self.client.get(reverse('label_index'))
         self.assertTrue(len(resp.context['object_list']) == 3)
 
-    # Method tests label update / Метод тестирует обновление метки
+    # Method tests label update
+    # Метод тестирует обновление метки
     def test_UpdateLabels(self):
         self.client.force_login(self.user)
         s1 = Labels.objects.get(pk=1)
@@ -67,7 +69,8 @@ class Labels_Test(TestCase):
         s1.refresh_from_db()
         self.assertEqual(s1.name, 'Updated label')
 
-    # Method tests label delete / Метод тестирует удаление метки
+    # Method tests label delete
+    # Метод тестирует удаление метки
     def test_DeleteStatus(self):
         self.client.force_login(self.user)
         self.assertEqual(Labels.objects.count(), 3)
