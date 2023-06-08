@@ -5,7 +5,7 @@
 {% block content %}
     <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}
+        {% bootstrap_form form %}
         <input class="btn btn-primary" type="submit" value='{% trans "Login" %}'>
     </form>
 {% endblock %}
