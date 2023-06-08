@@ -12,7 +12,7 @@ class IndexView(SuccessMessageMixin, TemplateView):
 
 class LogIn(SuccessMessageMixin, LoginView):
     template_name = "login.html"
-    success_message = 'Successfully login'
+    success_message = _('Successfully login')
 
 
 class LogOut(LogoutView):

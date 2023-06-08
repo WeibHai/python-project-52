@@ -57,6 +57,10 @@ msgstr "Выйти"
 msgid "Signin"
 msgstr "Вход"
 
+#: task_manager/templates/login.html:9
+msgid "Login"
+msgstr "Авторизоваться"
+
 #: task_manager/templates/components/header.html:27
 msgid "Registration"
 msgstr "Регистрация"
