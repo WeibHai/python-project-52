@@ -125,7 +125,7 @@ msgstr "Автор"
 
 #: task_manager/users/views.py:30
 msgid "User created"
-msgstr "Пользователь создан"
+msgstr "Пользователь успешно зарегистрирован"
 
 #: task_manager/users/views.py:49
 msgid "You are not authorized!"
