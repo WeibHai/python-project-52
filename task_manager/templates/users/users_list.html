@@ -22,7 +22,7 @@
                 <td>{{ usr.id }}</td>
                 <td>{{ usr.username }}</td>
                 <td>{{ usr.first_name }} {{ usr.last_name }}</td>
-                <td>{{ usr.created_at }}</td>
+                <td>{{ usr.date_joined|date:"d.m.Y" }}</td>
                 {% if usr == user %}
                 <td>
                     <a href="{% url 'user_update' pk=usr.id %}">{% trans 'Edit' %}</a> 
