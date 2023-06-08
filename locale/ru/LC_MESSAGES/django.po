@@ -51,7 +51,7 @@ msgstr "Задачи"
 
 #: task_manager/templates/components/header.html:19
 msgid "Log Out"
-msgstr "Выйти"
+msgstr "Выход"
 
 #: task_manager/templates/components/header.html:23
 msgid "Signin"
