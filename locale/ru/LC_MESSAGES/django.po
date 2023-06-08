@@ -63,7 +63,11 @@ msgstr "Авторизоваться"
 
 #: task_manager/views.py:15
 msgid "Successfully login"
-msgstr "Вы успешно авторизоваться "
+msgstr "Вы успешно авторизовались"
+
+#: task_manager/views.py:19
+msgid "Successfully login"
+msgstr "Вы успешно вышли"
 
 #: task_manager/templates/components/header.html:27
 msgid "Registration"
