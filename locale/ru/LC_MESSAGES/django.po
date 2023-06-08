@@ -67,7 +67,7 @@ msgstr "Вы залогинены"
 
 #: task_manager/views.py:19
 msgid "Successfully logout"
-msgstr "Вы успешно вышли"
+msgstr "Вы разлогинены"
 
 #: task_manager/templates/components/header.html:27
 msgid "Registration"

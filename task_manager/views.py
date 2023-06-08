@@ -14,7 +14,7 @@ class IndexView(SuccessMessageMixin, TemplateView):
 class LogIn(SuccessMessageMixin, LoginView):
     template_name = "login.html"
     success_message = _('Successfully login')
-    success_url = reverse_lazy("index")
+    success_url = redirect("index")
 
 
 class LogOut(LogoutView):
