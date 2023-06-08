@@ -63,7 +63,7 @@ msgstr "Войти"
 
 #: task_manager/views.py:15
 msgid "Successfully login"
-msgstr "Вы успешно авторизовались"
+msgstr "Вы залогинены"
 
 #: task_manager/views.py:19
 msgid "Successfully logout"
