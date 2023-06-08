@@ -34,10 +34,6 @@ tests-cov:
 	poetry run coverage run ./manage.py test
 	poetry run coverage xml
 
-tests-cov-c:
-	poetry run coverage run ./manage.py test
-	poetry run coverage xml
-
 setup:
 	poetry install
 	poetry run python3 manage.py makemigrations
