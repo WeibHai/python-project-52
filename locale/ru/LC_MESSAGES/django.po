@@ -66,7 +66,7 @@ msgid "Successfully login"
 msgstr "Вы успешно авторизовались"
 
 #: task_manager/views.py:19
-msgid "Successfully login"
+msgid "Successfully logout"
 msgstr "Вы успешно вышли"
 
 #: task_manager/templates/components/header.html:27
