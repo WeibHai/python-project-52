@@ -211,7 +211,7 @@ msgstr "Статус удален"
 #: task_manager/templates/statuses/statuses_update.html:100
 #: task_manager/templates/users/users_update.html:10
 msgid "Update"
-msgstr "Обновить"
+msgstr "Изменить"
 
 #: task_manager/templates/labels/labels_delete.html:8
 #: task_manager/templates/tasks/tasks_delete.html:8
