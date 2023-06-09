@@ -137,7 +137,7 @@ msgstr "У вас нет соответствующих прав!"
 
 #: task_manager/users/views.py:66
 msgid "User changed"
-msgstr "Пользователь изменен"
+msgstr "Пользователь успешно изменен"
 
 #: task_manager/users/views.py:73
 msgid "User deleted"
