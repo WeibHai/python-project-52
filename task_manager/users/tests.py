@@ -79,8 +79,8 @@ class Users_Test(TestCase):
                 'first_name': 'NoName',
                 'last_name': 'NoLastName',
                 'username': 'NoNameNoLastName',
-                'password1': 'NoLastName123',
-                'password2': 'NoLastName123',
+                'password1': '12345789sq',
+                'password2': '12345789sq',
             }
         )
         self.assertEqual(resp.status_code, 302)

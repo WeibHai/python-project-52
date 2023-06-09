@@ -34,10 +34,7 @@ class UsersCreateView(SuccessMessageMixin, CreateView):
 
 # Mixin classes for classes UsersUpdateView, UsersDeleteView
 # Класс-примесь для классов UsersUpdateView, UsersDeleteView
-class RulesMixin:
-    model = Users
-    success_url = reverse_lazy('user_index')
-    fields = ['first_name', 'last_name', 'username']
+class UsersMixin:
 
     def has_permission(self) -> bool:
         return self.get_object().pk == self.request.user.pk
@@ -61,13 +58,19 @@ class RulesMixin:
 
 # The class changes information about the model instance
 # Класс изменяет информацию о экземпляре моделе
-class UsersUpdateView(SuccessMessageMixin, RulesMixin, UpdateView):
-    template_name = "users/users_update.html"
+class UsersUpdateView(SuccessMessageMixin, UsersMixin, UpdateView):
+    model = Users
+    form_class = UsersForm
+    success_url = reverse_lazy('user_index')
     success_message = _('User changed')
+    template_name = "users/users_update.html"
 
 
 # The class deletes the model instance
 # Класс удаляет экземпляр модели
-class UsersDeleteView(SuccessMessageMixin, RulesMixin, DeleteView):
-    template_name = "users/users_delete.html"
+class UsersDeleteView(SuccessMessageMixin, UsersMixin, DeleteView):
+    model = Users
+    success_url = reverse_lazy('user_index')
     success_message = _('User deleted')
+    template_name = "users/users_delete.html"
+
