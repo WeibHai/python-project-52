@@ -151,7 +151,7 @@ msgstr "Пользователь успешно удален"
 #: task_manager/tasks/views.py:19
 #: task_manager/templates/labels/labels_create.html:9
 #: task_manager/templates/tasks/tasks_create.html:9
-#: task_manager/templates/statuses/statuses_create.html:9
+#: task_manager/templates/statuses/statuses_create.html:10
 #: task_manager/templates/users/users_create.html:10
 msgid "New Tasks"
 msgstr "Новая задача"
