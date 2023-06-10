@@ -141,7 +141,7 @@ msgstr "Пользователь успешно изменен"
 
 #: task_manager/users/views.py:73
 msgid "User deleted"
-msgstr "Пользователь удален"
+msgstr "Пользователь успешно удален"
 
 #: task_manager/labels/views.py:17
 #: task_manager/tasks/views.py:19
