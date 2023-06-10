@@ -103,6 +103,10 @@ msgstr "Дата создания"
 msgid "Create status"
 msgstr "Создать статус"
 
+#: task_manager/templates/statuses/views.html:20
+msgid "name"
+msgstr "Имя"
+
 #: task_manager/templates/tasks/tasks_list.html:52
 msgid "Create task"
 msgstr "Создать задачу"
@@ -220,6 +224,10 @@ msgstr "Изменить"
 
 msgid "Confirm"
 msgstr "Да, удалить"
+
+#: task_manager/templates/statuses/models.py:6
+msgid "Status name"
+msgstr "Имя"
 
 #: task_manager/templates/tasks/tasks_list.html:8
 msgid "To the task"
