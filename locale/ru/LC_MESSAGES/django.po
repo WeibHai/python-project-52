@@ -219,7 +219,7 @@ msgstr "Изменить"
 #: task_manager/templates/users/users_delete.html:8
 
 msgid "Confirm"
-msgstr "Потвердить"
+msgstr "Да, удалить"
 
 #: task_manager/templates/tasks/tasks_list.html:8
 msgid "To the task"
