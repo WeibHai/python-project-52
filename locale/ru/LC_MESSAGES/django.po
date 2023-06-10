@@ -199,7 +199,7 @@ msgstr "Обновить метку"
 
 #: task_manager/statuses/views.py:33
 msgid "Status created"
-msgstr "Статус создан"
+msgstr "Статус успешно создан"
 
 #: task_manager/statuses/views.py:40
 msgid "Status changed"
