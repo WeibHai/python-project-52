@@ -188,7 +188,7 @@ msgstr "Удалить задачу может только автор"
 
 #: task_manager/tasks/views.py:65
 msgid "Task deleted'"
-msgstr "Задача удалена"
+msgstr "Задача успешно удалена"
 
 #: task_manager/labels/views.py:17
 msgid "New Labels"
@@ -213,6 +213,10 @@ msgstr "Статус успешно изменен"
 #: task_manager/labels/views.py:47
 msgid "Label changed"
 msgstr "Метка успешно изменена"
+
+#: task_manager/labels/views.py:59
+msgid "Label deleted"
+msgstr "Метка успешно удалена"
 
 #: task_manager/statuses/views.py:53
 msgid "Status deleted"
