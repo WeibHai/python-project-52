@@ -159,6 +159,10 @@ msgstr "Новая задача"
 msgid "Create"
 msgstr "Создать"
 
+#: task_manager/labels/models.py:14
+msgid "Created"
+msgstr "Создать"
+
 #: task_manager/templates/users/users_create.html:10
 msgid "Register"
 msgstr "Зарегистрировать"
