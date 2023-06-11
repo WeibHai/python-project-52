@@ -51,7 +51,6 @@ class LabelsUpdateView(LabelsMixin, UpdateView):
 # Класс удаляет экземпляр модели
 class LabelsDeleteView(LabelsMixin, DeleteView):
     template_name = 'labels/labels_delete.html'
-    success_message = _('Label deleted')
 
     def post(self, request, *args, **kwargs):
         try:
