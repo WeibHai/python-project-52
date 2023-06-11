@@ -44,11 +44,14 @@ class StatusesUpdateView(StatusMixin, UpdateView):
 # Класс удаляет экземпляр модели
 class StatusesDeleteView(StatusMixin, DeleteView):
     template_name = 'statuses/statuses_delete.html'
-    success_message = _('Status deleted')
 
     def post(self, request, *args, **kwargs):
         try:
             self.delete(request, *args, **kwargs)
+            messages.success(
+                self.request,
+                _('Status deleted')
+            )
             return redirect(reverse_lazy('status_index'))
         except ProtectedError:
             messages.error(self.request,
