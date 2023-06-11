@@ -234,11 +234,15 @@ msgstr "Имя"
 msgid "Update"
 msgstr "Изменить"
 
+#: task_manager/tasks/models.html:12
+msgid "Task name"
+msgstr "Имя"
+
 #: task_manager/tasks/models.html:17
 msgid "Description"
 msgstr "Описание"
 
-#: task_manager/tasks/models.html:17
+#: task_manager/tasks/models.html:35
 msgid "Executor"
 msgstr "Исполнитель"
 
