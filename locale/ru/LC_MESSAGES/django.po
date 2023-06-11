@@ -153,6 +153,7 @@ msgstr "Пользователь успешно удален"
 #: task_manager/templates/tasks/tasks_create.html:9
 #: task_manager/templates/statuses/statuses_create.html:10
 #: task_manager/templates/users/users_create.html:10
+#: task_manager/labels/models.py:14
 msgid "New Tasks"
 msgstr "Новая задача"
 msgid "Create"
@@ -208,6 +209,10 @@ msgstr "Статус успешно изменен"
 #: task_manager/statuses/views.py:53
 msgid "Status deleted"
 msgstr "Статус успешно удален"
+
+#: task_manager/labels/models.py:53
+msgid "Label name"
+msgstr "Имя"
 
 #: task_manager/templates/labels/labels_update.html:10
 #: task_manager/templates/tasks/tasks_update.html:10
