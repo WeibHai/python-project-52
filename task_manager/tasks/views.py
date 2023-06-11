@@ -16,7 +16,6 @@ from .models import Tasks
 # Класс-примесь с общими атрибутами
 class TasksMixin(SuccessMessageMixin, LoginRequiredMixin):
     model = Tasks
-    #extra_context = {'title': _('New Tasks'), 'button': _('Create')}
     login_url = reverse_lazy('login')
     success_url = reverse_lazy('task_index')
     fields = ['name', 'description', 'status', 'executor', 'labels']
@@ -26,7 +25,6 @@ class TasksMixin(SuccessMessageMixin, LoginRequiredMixin):
 # Класс отображает список экземпляров модели
 class TasksListView(TasksMixin, FilterView):
     context_object_name = 'tasks'
-    #extra_context = {'title': _('Tasks')}
     template_name = 'tasks/tasks_list.html'
     filterset_class = TaskFilter
 
@@ -46,7 +44,6 @@ class TasksCreateView(TasksMixin, CreateView):
 # Класс отображает подобробную иформацию о моделе
 class TaskView(TasksMixin, DetailView):
     context_object_name = 'task'
-    #extra_context = {'title': _('Show task')}
     template_name = 'tasks/tasks_page.html'
 
 
@@ -54,7 +51,6 @@ class TaskView(TasksMixin, DetailView):
 # Класс изменяет информацию о экземпляре моделе
 class TasksUpdateView(TasksMixin, UpdateView):
     template_name = 'tasks/tasks_update.html'
-    #extra_context = {'title': _('Update task'), 'button': _('Change')}
     success_message = _('Task changed')
 
 
