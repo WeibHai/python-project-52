@@ -234,6 +234,18 @@ msgstr "Имя"
 msgid "Update"
 msgstr "Изменить"
 
+#: task_manager/tasks/models.html:17
+msgid "Description"
+msgstr "Описание"
+
+#: task_manager/tasks/models.html:17
+msgid "Executor"
+msgstr "Исполнитель"
+
+#: task_manager/tasks/models.html:42
+msgid "Label"
+msgstr "Метки"
+
 #: task_manager/templates/labels/labels_delete.html:9
 #: task_manager/templates/tasks/tasks_delete.html:9
 #: task_manager/templates/statuses/statuses_delete.html:9
@@ -253,7 +265,6 @@ msgstr "Перейти к странице"
 #: task_manager/templates/index.html:9
 msgid "Hello from Hexlet!"
 msgstr "Привет от Хекслета!"
-
 
 #: task_manager/templates/index.html:10
 msgid "Practical programming courses"
