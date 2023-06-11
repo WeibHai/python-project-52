@@ -169,7 +169,7 @@ msgstr "Зарегистрировать"
 
 #: task_manager/tasks/views.py:38
 msgid "Task created"
-msgstr "Задача Создана"
+msgstr "Задача успешно создана"
 
 #: task_manager/labels/views.py:46
 #: task_manager/tasks/views.py:57
@@ -196,7 +196,7 @@ msgstr "Новая метка"
 
 #: task_manager/labels/views.py:35
 msgid "Label created"
-msgstr "Метка создана"
+msgstr "Метка успешно создана"
 
 #: task_manager/labels/views.py:46
 msgid "Update label"
