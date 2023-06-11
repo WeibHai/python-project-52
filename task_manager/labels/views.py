@@ -43,7 +43,6 @@ class LabelsCreateView(LabelsMixin, CreateView):
 # Класс изменяет информацию о экземпляре моделе
 class LabelsUpdateView(LabelsMixin, UpdateView):
     template_name = 'labels/labels_update.html'
-    extra_context = {'title': _('Update label'), 'button': _('Change')}
     success_message = _('Label changed')
 
 
