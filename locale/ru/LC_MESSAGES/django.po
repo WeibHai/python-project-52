@@ -217,10 +217,10 @@ msgstr "Статус удален"
 msgid "Update"
 msgstr "Изменить"
 
-#: task_manager/templates/labels/labels_delete.html:8
-#: task_manager/templates/tasks/tasks_delete.html:8
-#: task_manager/templates/statuses/statuses_delete.html:8
-#: task_manager/templates/users/users_delete.html:8
+#: task_manager/templates/labels/labels_delete.html:9
+#: task_manager/templates/tasks/tasks_delete.html:9
+#: task_manager/templates/statuses/statuses_delete.html:9
+#: task_manager/templates/users/users_delete.html:9
 
 msgid "Confirm"
 msgstr "Да, удалить"
