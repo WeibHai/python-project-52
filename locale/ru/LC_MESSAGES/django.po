@@ -121,7 +121,7 @@ msgstr "Имя"
 
 #: task_manager/templates/label/labels_list.html:27
 msgid "Status"
-msgstr "Cтатус"
+msgstr "Статус"
 
 #: task_manager/templates/label/labels_list.html:27
 msgid "Author"
@@ -254,7 +254,6 @@ msgstr "Метки"
 #: task_manager/templates/tasks/tasks_delete.html:9
 #: task_manager/templates/statuses/statuses_delete.html:9
 #: task_manager/templates/users/users_delete.html:9
-
 msgid "Confirm"
 msgstr "Да, удалить"
 
