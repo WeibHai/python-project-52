@@ -273,6 +273,10 @@ msgstr "Имя"
 msgid "To the task"
 msgstr "Перейти к странице"
 
+#: task_manager/templates/tasks/tasks_list.html:15
+msgid "Show"
+msgstr "Показать"
+
 #: task_manager/templates/index.html:9
 msgid "Hello from Hexlet!"
 msgstr "Привет от Хекслета!"
