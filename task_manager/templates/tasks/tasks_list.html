@@ -33,14 +33,13 @@
         {% for tsk in object_list %}
             <tr>
                 <td>{{ tsk.id }}</td>
-                <td>{{ tsk.name }}</td>
+                <td><a href="{% url 'task_page' pk=tsk.id %}">{{ tsk.name }}</a></td>
                 <td>{{ tsk.status }}</td>
                 <td>{{ tsk.author }}</td>
                 {% if tsk.author == user %}
                 <td>
                     <a href="{% url 'task_update' pk=tsk.id %}">{% trans 'Edit' %}</a> 
                     <a href="{% url 'task_delete' pk=tsk.id %}">{% trans 'Delete' %}</a>
-                    <a href="{% url 'task_page' pk=tsk.id %}">{% trans 'To the task' %}</a>
                 </td>
                 {% endif %}
             </tr>
