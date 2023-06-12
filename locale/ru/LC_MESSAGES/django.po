@@ -115,9 +115,13 @@ msgstr "Создать задачу"
 msgid "Create label"
 msgstr "Создать метку"
 
-#: task_manager/templates/tasks/tasks_list.html:35
-msgid "Create label"
-msgstr "Создать метку"
+#: task_manager/templates/tasks/filters.py:17
+msgid "Show own tasks"
+msgstr "Только свои задачи"
+
+#: task_manager/templates/tasks/filters.py:17
+msgid "Label filter"
+msgstr "Метка"
 
 #: task_manager/templates/label/labels_list.html:27
 msgid "Name"
