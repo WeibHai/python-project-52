@@ -11,12 +11,12 @@ class Tasks(models.Model):
         max_length=100,
         unique=True,
         verbose_name=_('Task name')
-        )
+    )
     description = models.TextField(
         max_length=500,
         blank=True,
         verbose_name=_('Description')
-        )
+    )
     status = models.ForeignKey(
         Statuses,
         on_delete=models.PROTECT,
