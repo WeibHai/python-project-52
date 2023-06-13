@@ -73,4 +73,3 @@ class UsersDeleteView(SuccessMessageMixin, UsersMixin, DeleteView):
     success_url = reverse_lazy('user_index')
     success_message = _('User deleted')
     template_name = "users/users_delete.html"
-
