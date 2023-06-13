@@ -8,11 +8,11 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
+import dj_database_url
 """
 from django.utils.translation import gettext_lazy as _
 from pathlib import Path
 from dotenv import load_dotenv
-#import dj_database_url
 import os
 
 
@@ -94,15 +94,17 @@ WSGI_APPLICATION = 'task_manager.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-#DATABASES = {
-#    'default': os.getenv("DATABASE_URL")
-#}
+"""
+DATABASES = {
+    'default': os.getenv("DATABASE_URL")
+}
+"""
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
-    }    
+    }
 }
 
 # Password validation
@@ -129,12 +131,12 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'ru'
 
-LANGUAGES =  (
+LANGUAGES = (
     ('en', _('English')),
     ('ru', _('Russian')),
 )
 
-LOCALE_PATHS =  [
+LOCALE_PATHS = [
     BASE_DIR / 'locale/',
 ]
 

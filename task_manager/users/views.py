@@ -42,15 +42,15 @@ class UsersMixin:
     def dispatch(self, request, *args, **kwargs):
         if not request.user.is_authenticated:
             messages.error(
-                 request,
-                 messages.error(self.request, _('You are not authorized!'))
+                request,
+                messages.error(self.request, _('You are not authorized!'))
             )
             return redirect('login')
 
         elif not self.has_permission():
             messages.error(
-                 request,
-                 messages.error(self.request, _("You have't permission!"))
+                request,
+                messages.error(self.request, _("You have't permission!"))
             )
             return redirect('user_index')
         return super().dispatch(request, *args, **kwargs)
