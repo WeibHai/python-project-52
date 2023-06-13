@@ -164,7 +164,7 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-ROLLBAR =  {
+ROLLBAR = {
     'access_token': os.getenv("ACCESS_TOKEN"),
     'environment': os.getenv("ENVIRONMENT"),
     'code_version': '1.0',
