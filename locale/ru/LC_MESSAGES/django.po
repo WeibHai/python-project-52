@@ -265,6 +265,14 @@ msgstr "Метки"
 msgid "Confirm"
 msgstr "Да, удалить"
 
+#: task_manager/tasks/views.py:54
+msgid "Task changed"
+msgstr "Задача успешно изменена"
+
+#: task_manager/tasks/views.py:61
+msgid "Task deleted"
+msgstr "Задача успешно удалена"
+
 #: task_manager/templates/statuses/models.py:6
 msgid "Status name"
 msgstr "Имя"
