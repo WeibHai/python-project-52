@@ -101,6 +101,7 @@ DATABASES = {
     }
 }
 
+
 if os.getenv('DATABASE_URL'):
     db_postgress = dj_database_url.config(conn_max_age=600)
     DATABASES['default'].update(db_postgress)
