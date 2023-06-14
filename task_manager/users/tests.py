@@ -2,12 +2,10 @@ from django.test import TestCase
 from .models import Users
 from django.urls import reverse
 
-
 # Create your tests here.
 # Class test functional model User
 # Класс тестирует функционал модели User
 class Users_Test(TestCase):
-    fixtures = ['users.json']
 
     @classmethod
     def setUpTestData(cls):
