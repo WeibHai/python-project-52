@@ -7,9 +7,10 @@ from django.urls import reverse
 # Class test functional model User
 # Класс тестирует функционал модели User
 class Users_Test(TestCase):
+    fixtures = ['users.json']
 
     @classmethod
-    def setUpTestData(cls):
+    def setUpTestData(self, cls):
         Users.objects.create(
             first_name='Ivan',
             last_name='Ivanov',

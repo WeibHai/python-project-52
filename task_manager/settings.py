@@ -94,12 +94,6 @@ WSGI_APPLICATION = 'task_manager.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-"""
-DATABASES = {
-    'default': os.getenv("DATABASE_URL")
-}
-"""
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',

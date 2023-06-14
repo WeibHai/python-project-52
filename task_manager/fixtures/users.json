@@ -1,0 +1,23 @@
+[
+    {
+      "model": "users.Users",
+      "pk": 1,
+      "fields": {
+        "first_name": "Ivan",
+        "last_name": "Ivanov",
+        "username": "IvanIvanov",
+        "password": "IvanIvanov123"
+      }
+    },
+    {
+      "model": "users.Users",
+      "pk": 2,
+      "fields": {
+        "first_name": "Anna",
+        "last_name": "None",
+        "username": "AnnaNone",
+        "password": "AnnaNone123"
+      }
+    }
+  ]
+  
