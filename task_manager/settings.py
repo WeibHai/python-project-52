@@ -8,10 +8,10 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
-import dj_database_url
 """
 from django.utils.translation import gettext_lazy as _
 from pathlib import Path
+import dj_database_url
 from dotenv import load_dotenv
 import os
 
@@ -106,6 +106,10 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+if os.getenv('DATABASE_URL'):
+    db_postgress = dj_database_url.config(conn_max_age=600)
+    DATABASES['default'].update(db_postgress)
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
