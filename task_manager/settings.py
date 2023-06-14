@@ -101,8 +101,9 @@ DATABASES = {
     }
 }
 
-db_postgress = dj_database_url.config(os.getenv("DATABASE_URL"), conn_max_age=600)
-DATABASES['default'].update(db_postgress)
+if os.getenv('DATABASE_URL'):
+    db_postgress = dj_database_url.config(os.getenv("DATABASE_URL"), conn_max_age=600)
+    DATABASES['default'].update(db_postgress)
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
