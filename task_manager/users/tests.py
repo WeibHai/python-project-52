@@ -10,7 +10,7 @@ class Users_Test(TestCase):
     fixtures = ['users.json']
 
     @classmethod
-    def setUpTestData(self, cls):
+    def setUpTestData(cls):
         Users.objects.create(
             first_name='Ivan',
             last_name='Ivanov',
