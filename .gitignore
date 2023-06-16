@@ -3,3 +3,7 @@
 dist/
 __pycache__/
 test-reporter-latest-linux-amd64
+.coverage
+cc-test-reporter
+coverage.xml
+db.sqlite3
