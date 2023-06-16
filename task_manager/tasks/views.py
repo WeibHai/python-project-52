@@ -20,26 +20,10 @@ class TasksMixin(SuccessMessageMixin, LoginRequiredMixin):
     success_url = reverse_lazy('task_index')
     fields = ['name', 'description', 'status', 'executor', 'labels']
 
-    def dispatch(self, request, *args, **kwargs):
-        if not request.user.is_authenticated:
-            messages.error(
-                self.request,
-                _("You are not authorized!")
-            )
-            return self.handle_no_permission()
-
-        elif not self.has_permission():
-            messages.error(
-                request,
-                _("Error! You can't delete this task. Only author")
-            )
-            return redirect('task_index')
-        return super().dispatch(request, *args, **kwargs)
-
 
 # The class displays a list of model instances
 # Класс отображает список экземпляров модели
-class TasksListView(FilterView):
+class TasksListView(TasksMixin, FilterView):
     context_object_name = 'tasks'
     template_name = 'tasks/tasks_list.html'
     filterset_class = TaskFilter
@@ -69,6 +53,16 @@ class TasksUpdateView(TasksMixin, UpdateView):
     template_name = 'tasks/tasks_update.html'
     success_message = _('Task changed')
 
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            messages.error(
+                self.request,
+                _("You are not authorized!")
+            )
+            return self.handle_no_permission()
+
+        return super().dispatch(request, *args, **kwargs)
+
 
 # The class deletes the model instance
 # Класс удаляет экземпляр модели
@@ -78,3 +72,19 @@ class TasksDeleteView(TasksMixin, DeleteView):
 
     def has_permission(self) -> bool:
         return self.get_object().author.pk == self.request.user.pk
+
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            messages.error(
+                self.request,
+                _("You are not authorized!")
+            )
+            return self.handle_no_permission()
+
+        elif not self.has_permission():
+            messages.error(
+                request,
+                _("Error! You can't delete this task. Only author")
+            )
+            return redirect('task_index')
+        return super().dispatch(request, *args, **kwargs)
