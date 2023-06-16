@@ -140,6 +140,9 @@ msgid "User created"
 msgstr "Пользователь успешно зарегистрирован"
 
 #: task_manager/users/views.py:49
+#: task_manager/tasks/views.py:30
+#: task_manager/labels/views.py:26
+#: task_manager/stauses/views.py:26
 msgid "You are not authorized!"
 msgstr "Вы не авторизованы!"
 
@@ -297,3 +300,14 @@ msgstr "Практические курсы по програмированию"
 msgid "To learn more"
 msgstr "Узнать больше"
 
+#: task_manager/labels/views.py:65
+msgid "Error! Can't delete, label in use"
+msgstr "Невозможно удалить, метка используется"
+
+#: task_manager/tasks/views.py:30
+msgid "Error! You are not authenticated"
+msgstr "Вы не авторизованы! Пожалуйста, выполните вход."
+
+#: task_manager/statuses/views.py:58
+msgid "Error! Can't delete, status in use"
+msgstr "Невозможно удалить, статус используется"

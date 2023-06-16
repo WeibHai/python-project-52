@@ -19,6 +19,16 @@ class StatusMixin(SuccessMessageMixin, LoginRequiredMixin):
     login_url = reverse_lazy('login')
     fields = ['name']
 
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            messages.error(
+                self.request,
+                _("You are not authorized!")
+            )
+            return self.handle_no_permission()
+
+        return super().dispatch(request, *args, **kwargs)
+
 
 # The class displays a list of model instances
 # Класс отображает список экземпляров модели

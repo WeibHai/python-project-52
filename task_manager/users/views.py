@@ -1,7 +1,9 @@
 from django.utils.translation import gettext_lazy as _
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.shortcuts import redirect
+from django.db.models import ProtectedError
 from django.views.generic.list import ListView
+from django.http import HttpResponseRedirect
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
 from django.urls import reverse_lazy
@@ -73,3 +75,19 @@ class UsersDeleteView(SuccessMessageMixin, UsersMixin, DeleteView):
     success_url = reverse_lazy('user_index')
     success_message = _('User deleted')
     template_name = "users/users_delete.html"
+
+    def form_valid(self, form):
+        success_url = self.get_success_url()
+        try:
+            self.object.delete()
+        except ProtectedError:
+            messages.error(
+                self.request,
+                _("Cannot delete a user because he is being used"),
+            )
+        else:
+            messages.success(
+                self.request,
+                _("User successfully deleted"),
+            )
+        return HttpResponseRedirect(success_url)
