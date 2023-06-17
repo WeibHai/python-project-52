@@ -73,7 +73,8 @@ class UsersUpdateView(SuccessMessageMixin, UsersMixin, UpdateView):
 class UsersDeleteView(SuccessMessageMixin, UsersMixin, DeleteView):
     model = Users
     success_url = reverse_lazy('user_index')
-    success_message = _('User deleted')
+    success_message = _('User successfully deleted')
+    error_message = _("Cannot delete a user because he is being used")
     template_name = "users/users_delete.html"
 
     def form_valid(self, form):
@@ -81,13 +82,11 @@ class UsersDeleteView(SuccessMessageMixin, UsersMixin, DeleteView):
         try:
             self.object.delete()
         except ProtectedError:
-            messages.error(
-                self.request,
-                _("Cannot delete a user because he is being used"),
+            messages.success(
+                self.request, (self.error_message),
             )
         else:
             messages.success(
-                self.request,
-                _("User successfully deleted"),
+                self.request, (self.success_url),
             )
         return HttpResponseRedirect(success_url)

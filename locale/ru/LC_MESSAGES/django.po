@@ -154,7 +154,7 @@ msgstr "У вас нет соответствующих прав!"
 msgid "User changed"
 msgstr "Пользователь успешно изменен"
 
-#: task_manager/users/views.py:91
+#: task_manager/users/views.py:76
 msgid "User successfully deleted"
 msgstr "Пользователь успешно удален"
 
@@ -311,3 +311,7 @@ msgstr "Вы не авторизованы! Пожалуйста, выполни
 #: task_manager/statuses/views.py:58
 msgid "Error! Can't delete, status in use"
 msgstr "Невозможно удалить, статус используется"
+
+#: task_manager/users/views.py:77
+msgid "Cannot delete a user because he is being used"
+msgstr "Невозможно удалить пользователя, потому что он используется"
