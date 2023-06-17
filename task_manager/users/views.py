@@ -83,10 +83,10 @@ class UsersDeleteView(SuccessMessageMixin, UsersMixin, DeleteView):
             self.object.delete()
         except ProtectedError:
             messages.success(
-                self.request, (self.success_url),
+                self.request, (self.error_message),
             )
         else:
             messages.success(
-                self.request, (self.success_url),
+                self.request, (self.success_message),
             )
         return HttpResponseRedirect(success_url)
