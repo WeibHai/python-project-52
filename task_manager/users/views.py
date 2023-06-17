@@ -83,7 +83,7 @@ class UsersDeleteView(SuccessMessageMixin, UsersMixin, DeleteView):
             self.object.delete()
         except ProtectedError:
             messages.success(
-                self.request, (self.error_message),
+                self.request, (self.success_url),
             )
         else:
             messages.success(
